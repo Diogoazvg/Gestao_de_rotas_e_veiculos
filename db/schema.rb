@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_04_28_043556) do
+ActiveRecord::Schema.define(version: 2018_04_28_043832) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2018_04_28_043556) do
     t.float "combustivel"
     t.float "quilometragem"
     t.boolean "entregou_notas"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "manutencoes", force: :cascade do |t|
+    t.integer "data"
+    t.float "valor"
+    t.string "detalhes"
+    t.integer "previsao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

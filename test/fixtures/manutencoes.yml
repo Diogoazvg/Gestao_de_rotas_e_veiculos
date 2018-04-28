@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 1
+  valor: 1.5
+  detalhes: MyString
+  previsao: 1
+
+two:
+  data: 1
+  valor: 1.5
+  detalhes: MyString
+  previsao: 1

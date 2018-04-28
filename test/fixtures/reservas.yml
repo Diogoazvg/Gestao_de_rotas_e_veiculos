@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data_inicial: 1
+  quilometragem_inicial: 1.5
+  nivel_tanque: MyString
+
+two:
+  data_inicial: 1
+  quilometragem_inicial: 1.5
+  nivel_tanque: MyString

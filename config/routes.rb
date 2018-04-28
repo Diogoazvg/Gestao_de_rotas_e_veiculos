@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :devolucoes
   resources :reservas
   root to: "welcome#index"
   resources :veiculos

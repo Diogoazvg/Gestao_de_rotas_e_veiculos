@@ -1,0 +1,14 @@
+<%= simple_form_for @devolucao, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :data %>
+  <%= error_span(@devolucao[:data]) %>
+  <%= f.input :combustivel %>
+  <%= error_span(@devolucao[:combustivel]) %>
+  <%= f.input :quilometragem %>
+  <%= error_span(@devolucao[:quilometragem]) %>
+  <%= f.input :entregou_notas %>
+  <%= error_span(@devolucao[:entregou_notas]) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                devolucoes_path, :class => 'btn btn-default' %>
+<% end %>

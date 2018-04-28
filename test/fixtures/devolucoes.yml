@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  data: 1
+  combustivel: 1.5
+  quilometragem: 1.5
+  entregou_notas: false
+
+two:
+  data: 1
+  combustivel: 1.5
+  quilometragem: 1.5
+  entregou_notas: false

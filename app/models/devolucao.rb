@@ -1,0 +1,2 @@
+class Devolucao < ApplicationRecord
+end

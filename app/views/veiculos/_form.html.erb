@@ -1,0 +1,15 @@
+<%= simple_form_for @veiculo, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :marca %>
+  <%= f.input :modelo %>
+  <%= f.input :ano %>
+  <%= f.input :placa %>
+  <%= f.input :tipo %>
+  <%= f.input :categoria_cnh %>
+  <%= f.input :status %>
+  <%= f.input :quilometragem %>
+  <%= f.input :combustivel %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                veiculos_path, :class => 'btn btn-default' %>
+<% end %>

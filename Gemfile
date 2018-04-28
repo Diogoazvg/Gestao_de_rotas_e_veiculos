@@ -22,6 +22,17 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+gem 'twitter-bootstrap-rails'
+gem 'simple_form'
+gem 'bootstrap-datepicker-rails'
+gem 'devise'
+gem 'devise_invitable'
+gem 'devise-i18n'
+gem 'simple-form-datepicker'
+gem 'jquery-inputmask-rails'
+gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
+gem 'momentjs-rails'
+gem 'bootstrap-daterangepicker-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password
@@ -48,6 +59,8 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener'
+  gem 'byebug', platform: :mri
 end
 
 group :test do

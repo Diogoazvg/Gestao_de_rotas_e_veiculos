@@ -1,0 +1,15 @@
+<% if usuario_signed_in? %>
+  <li style="font-size: 25px">
+    <%= link_to edit_usuario_registration_path, class: 'glyphicon glyphicon-user' do %>
+    <% end %>
+  </li>
+  <li><%= link_to t('Sign out'), destroy_usuario_session_path, :method=>'delete' %></li>
+<% else %>
+  <li><%= link_to t('Sign in'), new_usuario_session_path %></li>
+  <li><%= link_to t('Sign up'), new_usuario_registration_path %></li>
+<% end %>
+<!--% if usuario_signed_in? %-->
+  <!--% if current_usuario.try(:admin?) %-->
+    <li><!--%= link_to t('Users'), usuarios_path %--></li>
+  <!--% end %-->
+<!--% end %-->

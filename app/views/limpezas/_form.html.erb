@@ -1,0 +1,10 @@
+<%= simple_form_for @limpeza, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :data %>
+  <%= error_span(@limpeza[:data]) %>
+  <%= f.input :valor %>
+  <%= error_span(@limpeza[:valor]) %>
+
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                limpezas_path, :class => 'btn btn-default' %>
+<% end %>

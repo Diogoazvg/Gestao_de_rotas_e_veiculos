@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: manutencoes
+#
+#  id         :bigint(8)        not null, primary key
+#  data       :integer
+#  valor      :float
+#  detalhes   :string
+#  previsao   :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class ManutencoesController < ApplicationController
   before_action :set_manutencao, only: [:show, :edit, :update, :destroy]
 

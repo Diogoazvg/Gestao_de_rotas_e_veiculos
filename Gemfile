@@ -30,9 +30,11 @@ gem 'devise_invitable'
 gem 'devise-i18n'
 gem 'simple-form-datepicker'
 gem 'jquery-inputmask-rails'
-gem 'annotate', git: 'https://github.com/ctran/annotate_models.git'
+gem 'annotate'
 gem 'momentjs-rails'
 gem 'bootstrap-daterangepicker-rails'
+gem 'faker'
+gem 'jquery-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

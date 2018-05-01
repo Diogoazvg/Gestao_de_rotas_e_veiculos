@@ -1,12 +1,12 @@
-<%= simple_form_for @reserva, :html => { :class => 'form-horizontal' } do |f| %>
-  <%= f.input :data_inicial %>
-  <%= error_span(@reserva[:data_inicial]) %>
-  <%= f.input :quilometragem_inicial %>
-  <%= error_span(@reserva[:quilometragem_inicial]) %>
-  <%= f.input :nivel_tanque %>
-  <%= error_span(@reserva[:nivel_tanque]) %>
-
+  <%= f.error_notification %>
+  <%= f.hidden_field :data_inicial, value: DateTime.now.to_date %>
+  <%= f.hidden_field :quilometragem_inicial, value: @veiculo.quilometragem %>
+  <%= f.input :nivel_tanque, collection: %w(Reserva Abaixo\ de\ meio\ tanque\ Meio\ tanque Acima\ de\ meio\ tanque Completo) %>
+  <%= f.hidden_field :usuario_id, value: current_usuario.id %>
+  <%= f.hidden_field :veiculo_id, value: @veiculo.id %>
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                reservas_path, :class => 'btn btn-default' %>
-<% end %>
+                veiculo_reservas_path, :class => 'btn btn-default' %>
+
+
+

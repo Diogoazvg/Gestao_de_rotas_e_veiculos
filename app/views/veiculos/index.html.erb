@@ -38,6 +38,8 @@
                       veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.reserva'), new_veiculo_reserva_path(veiculo), :class => 'btn btn-default btn-xs' %>
+                      
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       veiculo_path(veiculo),
                       :method => :delete,

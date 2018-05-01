@@ -12,6 +12,7 @@
 
 class ReservasController < ApplicationController
   before_action :set_reserva, only: [:show, :edit, :update, :destroy]
+  before_action :set_veiculo, only: [:new]
 
   # GET /reservas
   # GET /reservas.json
@@ -40,7 +41,7 @@ class ReservasController < ApplicationController
 
     respond_to do |format|
       if @reserva.save
-        format.html { redirect_to @reserva, notice: 'Reserva was successfully created.' }
+        format.html { redirect_to reserva_path(@reserva), notice: 'Reserva was successfully created.' }
         format.json { render :show, status: :created, location: @reserva }
       else
         format.html { render :new }
@@ -79,8 +80,12 @@ class ReservasController < ApplicationController
       @reserva = Reserva.find(params[:id])
     end
 
+    def set_veiculo
+      @veiculo = Veiculo.find(params[:veiculo_id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def reserva_params
-      params.require(:reserva).permit(:data_inicial, :quilometragem_inicial, :nivel_tanque)
+      params.require(:reserva).permit(:data_inicial, :quilometragem_inicial, :nivel_tanque, :usuario_id, :veiculo_id)
     end
 end

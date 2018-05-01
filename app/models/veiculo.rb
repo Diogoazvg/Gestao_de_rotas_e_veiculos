@@ -17,4 +17,5 @@
 #
 
 class Veiculo < ApplicationRecord
+  has_many :reserva
 end

@@ -3,7 +3,6 @@
 # Table name: usuarios
 #
 #  id                     :bigint(8)        not null, primary key
-#  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
 #  reset_password_token   :string
 #  reset_password_sent_at :datetime
@@ -21,6 +20,7 @@
 #  cnh                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  email                  :string
 #
 
 class Usuario < ApplicationRecord
@@ -41,5 +41,11 @@ class Usuario < ApplicationRecord
   enum funcao: %w(Técnico Gerente Motorista)
   enum perfil: %w(Atendente Gerente_perfil Administrador)
   enum cnh: %w(A B C D E)
+
+  has_many :reserva
+
+  def to_s
+    "#{nome} - #{matricula}"  
+  end
 
 end

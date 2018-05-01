@@ -8,8 +8,11 @@ Rails.application.routes.draw do
   resources :manutencoes
   resources :servicos
   resources :devolucoes
-  resources :reservas
+  
   root to: "welcome#index"
-  resources :veiculos
+  resources :veiculos do
+    resources :reservas 
+  end
+  resources :reservas
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

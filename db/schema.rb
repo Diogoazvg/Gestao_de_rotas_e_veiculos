@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_01_155029) do
+ActiveRecord::Schema.define(version: 2018_05_01_172641) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,13 +86,14 @@ ActiveRecord::Schema.define(version: 2018_05_01_155029) do
     t.string "modelo"
     t.integer "ano"
     t.string "placa"
-    t.string "tipo"
-    t.string "categoria_cnh"
-    t.string "status"
     t.float "quilometragem"
-    t.string "combustivel"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "tipo"
+    t.integer "categoria_cnh"
+    t.integer "status"
+    t.integer "combustivel"
+    t.integer "combustivel2"
   end
 
   add_foreign_key "reservas", "usuarios"

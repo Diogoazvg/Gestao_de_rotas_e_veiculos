@@ -7,13 +7,14 @@
 #  modelo        :string
 #  ano           :integer
 #  placa         :string
-#  tipo          :string
-#  categoria_cnh :string
-#  status        :string
 #  quilometragem :float
-#  combustivel   :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  tipo          :integer
+#  categoria_cnh :integer
+#  status        :integer
+#  combustivel   :integer
+#  combustivel2  :integer
 #
 
 class VeiculosController < ApplicationController
@@ -72,12 +73,21 @@ class VeiculosController < ApplicationController
   # DELETE /veiculos/1
   # DELETE /veiculos/1.json
   def destroy
+    begin
     @veiculo.destroy
-    respond_to do |format|
-      format.html { redirect_to veiculos_url, notice: 'Veiculo was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    rescue ActiveRecord::StatementInvalid
+      respond_to do |format|
+        format.html { redirect_to veiculos_url }
+        flash[:error] = "Não é possível apagar esse veículo, pois ele está reservado."  
+      end   
+    else
+      respond_to do |format|
+        format.html { redirect_to veiculos_url, notice: 'Veiculo was successfully destroyed.' }
+        format.json { head :no_content }
+      end
+    end 
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -87,6 +97,6 @@ class VeiculosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def veiculo_params
-      params.require(:veiculo).permit(:marca, :modelo, :ano, :placa, :tipo, :categoria_cnh, :status, :quilometragem, :combustivel)
+      params.require(:veiculo).permit(:marca, :modelo, :ano, :placa, :tipo, :categoria_cnh, :status, :quilometragem, :combustivel, :combustivel2)
     end
 end

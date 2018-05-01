@@ -3,11 +3,12 @@
   <%= f.input :modelo %>
   <%= f.input :ano %>
   <%= f.input :placa %>
-  <%= f.input :tipo %>
-  <%= f.input :categoria_cnh %>
-  <%= f.input :status %>
+  <%= f.input :tipo, collection: %w(Carro Moto Caminhão) %>
+  <%= f.input :categoria_cnh, collection: %w(A B C D E) %>
+  <%= f.input :status, collection: %w(Disponível Indisponível Em\ manutenção Desativado) %>
   <%= f.input :quilometragem %>
-  <%= f.input :combustivel %>
+  <%= f.input :combustivel, collection: %w(Gasolina Ácool Diesel Gás) %>
+  <%= f.input :combustivel2, collection: %w(Gasolina Ácool Diesel Gás) %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),

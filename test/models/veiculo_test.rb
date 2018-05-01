@@ -7,13 +7,14 @@
 #  modelo        :string
 #  ano           :integer
 #  placa         :string
-#  tipo          :string
-#  categoria_cnh :string
-#  status        :string
 #  quilometragem :float
-#  combustivel   :string
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null
+#  tipo          :integer
+#  categoria_cnh :integer
+#  status        :integer
+#  combustivel   :integer
+#  combustivel2  :integer
 #
 
 require 'test_helper'

@@ -7,7 +7,7 @@ class CreateVeiculos < ActiveRecord::Migration[5.2]
       t.string :placa
       t.string :tipo
       t.string :categoria_cnh
-      t.string :status
+      t.string :status, :string, :default => "Disponível"
       t.float :quilometragem
       t.string :combustivel
 

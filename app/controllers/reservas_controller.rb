@@ -14,7 +14,7 @@
 
 class ReservasController < ApplicationController
   before_action :set_reserva, only: [:show, :edit, :update, :destroy]
-  before_action :set_veiculo, only: [:new]
+  before_action :set_veiculo, except: [:show, :index, :edit, :update]
 
   # GET /reservas
   # GET /reservas.json
@@ -39,17 +39,25 @@ class ReservasController < ApplicationController
   # POST /reservas
   # POST /reservas.json
   def create
-    @reserva = Reserva.new(reserva_params)
+    byebug
+    #if current_usuario.reserva.veiculo.categoria_cnh == current_usuario.cnh
+      @reserva = Reserva.new(reserva_params)
+      @salvar = @veiculo.update(status: reserva_params[:status])
 
-    respond_to do |format|
-      if @reserva.save
-        format.html { redirect_to reserva_path(@reserva), notice: 'Reserva was successfully created.' }
-        format.json { render :show, status: :created, location: @reserva }
-      else
-        format.html { render :new }
-        format.json { render json: @reserva.errors, status: :unprocessable_entity }
+      respond_to do |format|
+        if @reserva.save
+          format.html { redirect_to reserva_path(@reserva), notice: 'Reserva was successfully created.' }
+          format.json { render :show, status: :created, location: @reserva }
+        else
+          format.html { render :new }
+          format.json { render json: @reserva.errors, status: :unprocessable_entity }
+        end
       end
-    end
+
+    # else
+    #   flash[:info] = "Sua categoria de CNH é diferente da necessária para dirigir esse veículo."
+    #   redirect_to index2_path
+    # end
   end
 
   # PATCH/PUT /reservas/1
@@ -88,6 +96,6 @@ class ReservasController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reserva_params
-      params.require(:reserva).permit(:data_inicial, :quilometragem_inicial, :nivel_tanque, :usuario_id, :veiculo_id)
+      params.require(:reserva).permit(:data_inicial, :quilometragem_inicial, :nivel_tanque, :usuario_id, :veiculo_id, :status)
     end
 end

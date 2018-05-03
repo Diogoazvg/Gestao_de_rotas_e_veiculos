@@ -7,7 +7,7 @@
     <tr>
       <th><%= model_class.human_attribute_name(:id) %></th>
       <th><%= model_class.human_attribute_name(:data) %></th>
-      <th><%= model_class.human_attribute_name(:combustivel) %></th>
+      <th><%= model_class.human_attribute_name(:nivel_combustivel) %></th>
       <th><%= model_class.human_attribute_name(:quilometragem) %></th>
       <th><%= model_class.human_attribute_name(:entregou_notas) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
@@ -19,15 +19,15 @@
       <tr>
         <td><%= link_to devolucao.id, devolucao_path(devolucao) %></td>
         <td><%= devolucao.data %></td>
-        <td><%= devolucao.combustivel %></td>
+        <td><%= devolucao.nivel_combustivel %></td>
         <td><%= devolucao.quilometragem %></td>
         <td><%= devolucao.entregou_notas %></td>
         <td><%=l devolucao.created_at %></td>
         <td>
           <%= link_to t('.show', :default => t("helpers.links.show")),
                       devolucao_path(devolucao), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_devolucao_path(devolucao), :class => 'btn btn-default btn-xs' %>
+          <!--%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_devolucao_path(devolucao), :class => 'btn btn-default btn-xs' %-->
           <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                       devolucao_path(devolucao),
                       :method => :delete,
@@ -40,5 +40,5 @@
 </table>
 
 <%= link_to t('.new', :default => t("helpers.links.new")),
-            new_devolucao_path,
+            new_reserva_devolucao_path,
             :class => 'btn btn-primary' %>

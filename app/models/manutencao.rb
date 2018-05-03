@@ -12,4 +12,5 @@
 #
 
 class Manutencao < ApplicationRecord
+  belongs_to :veiculo
 end

@@ -1,18 +1,25 @@
 Rails.application.routes.draw do
+  resources :abastecimentos
   # devise_for :usuarios, controllers: {
   #       sessions: 'usuarios/sessions',
   #       registrations: 'usuarios/registrations'
   #     }
+  root to: "welcome#index"
   devise_for :usuarios
   resources :limpezas
   resources :manutencoes
-  resources :servicos
   resources :devolucoes
-  
-  root to: "welcome#index"
   resources :veiculos do
-    resources :reservas 
+    resources :abastecimentos
+    resources :limpezas
+    resources :manutencoes
+    resources :reservas do
+      resources :devolucoes
+    end 
   end
-  resources :reservas
+  resources :reservas do
+    resources :devolucoes
+  end
+  get 'index2' => 'veiculos#index2' 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

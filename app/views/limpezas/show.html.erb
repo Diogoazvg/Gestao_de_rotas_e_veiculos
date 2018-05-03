@@ -8,6 +8,8 @@
   <dd><%= @limpeza.data %></dd>
   <dt><strong><%= model_class.human_attribute_name(:valor) %>:</strong></dt>
   <dd><%= @limpeza.valor %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:veiculo_id) %>:</strong></dt>
+  <dd><%= @limpeza.veiculo_id %></dd>
 </dl>
 
 <%= link_to t('.back', :default => t("helpers.links.back")),

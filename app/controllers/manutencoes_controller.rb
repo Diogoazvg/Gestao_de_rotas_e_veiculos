@@ -13,6 +13,7 @@
 
 class ManutencoesController < ApplicationController
   before_action :set_manutencao, only: [:show, :edit, :update, :destroy]
+  before_action :set_veiculo, only: [:index, :new, :edit, :destroy, :show]
 
   # GET /manutencoes
   # GET /manutencoes.json
@@ -38,6 +39,7 @@ class ManutencoesController < ApplicationController
   # POST /manutencoes.json
   def create
     @manutencao = Manutencao.new(manutencao_params)
+    # @manutencao = manutencao_params([:veiculo_id])
 
     respond_to do |format|
       if @manutencao.save
@@ -63,13 +65,13 @@ class ManutencoesController < ApplicationController
       end
     end
   end
-
+  
   # DELETE /manutencoes/1
   # DELETE /manutencoes/1.json
   def destroy
     @manutencao.destroy
     respond_to do |format|
-      format.html { redirect_to manutencoes_url, notice: 'Manutencao was successfully destroyed.' }
+      format.html { redirect_to veiculo_manutencoes_path(@veiculo), notice: 'Manutencao was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -79,9 +81,12 @@ class ManutencoesController < ApplicationController
     def set_manutencao
       @manutencao = Manutencao.find(params[:id])
     end
-
+    
+    def set_veiculo
+      @veiculo = Veiculo.find(params[:veiculo_id])
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def manutencao_params
-      params.require(:manutencao).permit(:data, :valor, :detalhes, :previsao)
+      params.require(:manutencao).permit(:data, :valor, :detalhes, :previsao, :veiculo_id)
     end
 end

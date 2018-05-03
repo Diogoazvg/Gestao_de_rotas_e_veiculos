@@ -18,7 +18,11 @@
 #
 
 class Veiculo < ApplicationRecord
-  has_many :reserva
+  has_one :reserva
+  has_many :devolucoes
+  has_many :limpezas
+  has_many :abastecimentos
+  has_many :manutencoes
 
   enum tipo: %w(Carro Moto Caminhão)
   enum categoria_cnh: %w(A B C D E)

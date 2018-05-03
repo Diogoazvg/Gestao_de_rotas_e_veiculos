@@ -10,18 +10,34 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_01_172641) do
+ActiveRecord::Schema.define(version: 2018_05_02_212404) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "abastecimentos", force: :cascade do |t|
+    t.date "data"
+    t.float "valor"
+    t.float "litros"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "veiculo_id"
+    t.index ["veiculo_id"], name: "index_abastecimentos_on_veiculo_id"
+  end
+
   create_table "devolucoes", force: :cascade do |t|
-    t.integer "data"
-    t.float "combustivel"
     t.float "quilometragem"
     t.boolean "entregou_notas"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "data"
+    t.float "nivel_combustivel"
+    t.bigint "veiculo_id"
+    t.bigint "usuario_id"
+    t.string "status"
+    t.string "reserva_id"
+    t.index ["usuario_id"], name: "index_devolucoes_on_usuario_id"
+    t.index ["veiculo_id"], name: "index_devolucoes_on_veiculo_id"
   end
 
   create_table "limpezas", force: :cascade do |t|
@@ -29,6 +45,8 @@ ActiveRecord::Schema.define(version: 2018_05_01_172641) do
     t.float "valor"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "veiculo_id"
+    t.index ["veiculo_id"], name: "index_limpezas_on_veiculo_id"
   end
 
   create_table "manutencoes", force: :cascade do |t|
@@ -38,6 +56,8 @@ ActiveRecord::Schema.define(version: 2018_05_01_172641) do
     t.integer "previsao"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "veiculo_id"
+    t.index ["veiculo_id"], name: "index_manutencoes_on_veiculo_id"
   end
 
   create_table "reservas", force: :cascade do |t|
@@ -48,6 +68,7 @@ ActiveRecord::Schema.define(version: 2018_05_01_172641) do
     t.bigint "veiculo_id"
     t.date "data_inicial"
     t.integer "nivel_tanque"
+    t.string "status"
     t.index ["usuario_id"], name: "index_reservas_on_usuario_id"
     t.index ["veiculo_id"], name: "index_reservas_on_veiculo_id"
   end
@@ -86,6 +107,7 @@ ActiveRecord::Schema.define(version: 2018_05_01_172641) do
     t.string "modelo"
     t.integer "ano"
     t.string "placa"
+    t.string "string", default: "Disponível"
     t.float "quilometragem"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -96,6 +118,11 @@ ActiveRecord::Schema.define(version: 2018_05_01_172641) do
     t.integer "combustivel2"
   end
 
+  add_foreign_key "abastecimentos", "veiculos"
+  add_foreign_key "devolucoes", "usuarios"
+  add_foreign_key "devolucoes", "veiculos"
+  add_foreign_key "limpezas", "veiculos"
+  add_foreign_key "manutencoes", "veiculos"
   add_foreign_key "reservas", "usuarios"
   add_foreign_key "reservas", "veiculos"
 end

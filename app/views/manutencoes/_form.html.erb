@@ -1,14 +1,9 @@
-<%= simple_form_for @manutencao, :html => { :class => 'form-horizontal' } do |f| %>
+
   <%= f.input :data %>
-  <%= error_span(@manutencao[:data]) %>
   <%= f.input :valor %>
-  <%= error_span(@manutencao[:valor]) %>
   <%= f.input :detalhes %>
-  <%= error_span(@manutencao[:detalhes]) %>
   <%= f.input :previsao %>
-  <%= error_span(@manutencao[:previsao]) %>
+  <%= f.hidden_field :veiculo_id, value: @veiculo.id %>
 
   <%= f.button :submit, :class => 'btn-primary' %>
-  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
-                manutencoes_path, :class => 'btn btn-default' %>
-<% end %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),:back, :class => 'btn btn-default' %>

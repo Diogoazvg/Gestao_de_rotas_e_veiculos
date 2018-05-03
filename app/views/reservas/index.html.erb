@@ -14,29 +14,29 @@
     </tr>
   </thead>
   <tbody>
-    <% @reservas.each do |reserva| %>
-      <tr>
-        <td><%= link_to reserva.id, reserva_path(reserva) %></td>
-        <td><%= reserva.data_inicial %></td>
-        <td><%= reserva.quilometragem_inicial %></td>
-        <td><%= reserva.nivel_tanque %></td>
-        <td><%=l reserva.created_at %></td>
-        <td>
-          <%= link_to t('.show', :default => t("helpers.links.show")),
-                      reserva_path(reserva), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                      edit_reserva_path(reserva), :class => 'btn btn-default btn-xs' %>
-          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
-                      reserva_path(reserva),
-                      :method => :delete,
-                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-                      :class => 'btn btn-xs btn-danger' %>
-        </td>
-      </tr>
-    <% end %>
+     
+    <tr>
+      <td><%= current_usuario.reserva.id %></td>
+      <td><%= current_usuario.reserva.data_inicial %></td>
+      <td><%= current_usuario.reserva.quilometragem_inicial %></td>
+      <td><%= current_usuario.reserva.nivel_tanque %></td>
+      <td><%=l current_usuario.reserva.created_at %></td>
+      <td>
+        <%= link_to t('.show', :default => t("helpers.links.show")),
+        reserva_path(current_usuario.reserva), :class => 'btn btn-default btn-xs' %>
+        <!--%= link_to t('.devolver', :default => t("helpers.links.edit")),
+        new_devolucao_path, :class => 'btn btn-default btn-xs' %-->
+        <!--%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+        reserva_path(current_usuario.reserva),
+        :method => :delete,
+        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+        :class => 'btn btn-xs btn-danger' %-->
+      </td>
+    </tr>
+
   </tbody>
 </table>
 
-<%= link_to t('.new', :default => t("helpers.links.new")),
-            new_reserva_path,
-            :class => 'btn btn-primary' %>
+<!--%= link_to t('.new', :default => t("helpers.links.new")),
+new_reserva_path,
+:class => 'btn btn-primary' %-->

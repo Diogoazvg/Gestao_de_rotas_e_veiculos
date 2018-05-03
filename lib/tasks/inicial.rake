@@ -14,9 +14,9 @@ task criar_super: :environment do
       nome:'administrador',               
       nascimento:DateTime.now.to_date,         
       funcao:'Técnico',             
-      perfil:'administrador',             
+      perfil:'Administrador',             
       cnh:'A',                
-      password: '12345678'
-      #password_confirmation: '12345678'
+      password: '12345678',
+      password_confirmation: '12345678'
       )
   end

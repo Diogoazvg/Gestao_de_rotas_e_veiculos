@@ -1,0 +1,8 @@
+<%= simple_form_for @abastecimento, :html => { :class => 'form-horizontal' } do |f| %>
+  <%= f.input :data %>
+  <%= f.input :valor %>
+  <%= f.input :litros %>
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                abastecimentos_path, :class => 'btn btn-default' %>
+<% end %>

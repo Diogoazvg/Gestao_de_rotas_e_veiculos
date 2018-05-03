@@ -4,6 +4,7 @@
   <%= f.input :nivel_tanque, collection: %w(Reserva Abaixo\ de\ meio\ tanque\ Meio\ tanque Acima\ de\ meio\ tanque Completo) %>
   <%= f.hidden_field :usuario_id, value: current_usuario.id %>
   <%= f.hidden_field :veiculo_id, value: @veiculo.id %>
+  <%= f.hidden_field :status, value: "Indisponível" %>
   <%= f.button :submit, :class => 'btn-primary' %>
   <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
                 veiculo_reservas_path, :class => 'btn btn-default' %>

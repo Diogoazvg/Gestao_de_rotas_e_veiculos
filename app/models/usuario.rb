@@ -42,7 +42,9 @@ class Usuario < ApplicationRecord
   enum perfil: %w(Atendente Gerente_perfil Administrador)
   enum cnh: %w(A B C D E)
 
-  has_many :reserva
+  has_one :reserva
+  has_one :devolucao
+  has_one :veiculo, through: :reserva
 
   def to_s
     "#{nome} - #{matricula}"  

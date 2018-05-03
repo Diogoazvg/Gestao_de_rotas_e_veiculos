@@ -1,5 +1,12 @@
-<%- model_class = Reserva -%>
-<div class="page-header">
-  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize %></h1>
-</div>
-<%= render :partial => 'form' %>
+<%= simple_form_for @reserva, url: reserva_path(@reserva) do |f| %>
+      <%= f.error_notification %>
+  <%= f.hidden_field :data_inicial, value: DateTime.now.to_date %>
+  <%= f.input :quilometragem_inicial, name: "Quilometragem Final" %>
+  <%= f.input :nivel_tanque, collection: %w(Reserva Abaixo\ de\ meio\ tanque\ Meio\ tanque Acima\ de\ meio\ tanque Completo) %>
+  <%= f.hidden_field :usuario_id, value: current_usuario.id %>
+  <!--%= f.hidden_field :veiculo_id, value: @veiculo.id %-->
+  <%= f.button :submit, :class => 'btn-primary' %>
+  <%= link_to t('.cancel', :default => t("helpers.links.cancel")),
+                reservas_path, :class => 'btn btn-default' %>
+
+  <% end %>

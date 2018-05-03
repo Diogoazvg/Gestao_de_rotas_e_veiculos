@@ -26,6 +26,10 @@ class VeiculosController < ApplicationController
     @veiculos = Veiculo.all
   end
 
+  def index2
+    @veiculos = Veiculo.all
+  end
+
   # GET /veiculos/1
   # GET /veiculos/1.json
   def show

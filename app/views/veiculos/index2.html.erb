@@ -1,0 +1,55 @@
+<%- model_class = Veiculo -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:marca) %></th>
+      <th><%= model_class.human_attribute_name(:modelo) %></th>
+      <th><%= model_class.human_attribute_name(:ano) %></th>
+      <th><%= model_class.human_attribute_name(:placa) %></th>
+      <th><%= model_class.human_attribute_name(:tipo) %></th>
+      <th><%= model_class.human_attribute_name(:cnh) %></th>
+      <th><%= model_class.human_attribute_name(:status) %></th>
+      <th><%= model_class.human_attribute_name(:quilometragem) %></th>
+      <th><%= model_class.human_attribute_name(:combustivel) %></th>
+      <th><%= model_class.human_attribute_name(:combustivel) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @veiculos.each do |veiculo| %>
+    <%if veiculo.status != 'Indisponível'%>
+    <tr>
+      <td><%= link_to veiculo.id, veiculo_path(veiculo) %></td>
+      <td><%= veiculo.marca %></td>
+      <td><%= veiculo.modelo %></td>
+      <td><%= veiculo.ano %></td>
+      <td><%= veiculo.placa %></td>
+      <td><%= veiculo.tipo %></td>
+      <td><%= veiculo.categoria_cnh %></td>
+      <td><%= veiculo.status %></td>
+      <td><%= veiculo.quilometragem %></td>
+      <td><%= veiculo.combustivel %></td>
+      <td><%= veiculo.combustivel2 %></td>
+      <td>
+        <%= link_to t('.show', :default => t("helpers.links.show")),
+        veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %>
+        <%= link_to t('.edit', :default => t("helpers.links.edit")),
+        edit_veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %>
+        <%= link_to t('.reservar'), new_veiculo_reserva_path(veiculo), :class => 'btn btn-default btn-xs' %>
+        <!--%= link_to t('.devolver'), new_veiculo_devolucao_path(veiculo), :class => 'btn btn-default btn-xs' %-->
+
+        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+        veiculo_path(veiculo),
+        :method => :delete,
+        :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+        :class => 'btn btn-xs btn-danger' %>
+      </td>
+    </tr>
+    <% end %>
+    <% end %>
+  </tbody>
+</table>

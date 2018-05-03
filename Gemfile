@@ -35,6 +35,12 @@ gem 'momentjs-rails'
 gem 'bootstrap-daterangepicker-rails'
 gem 'faker'
 gem 'jquery-rails'
+gem 'simple-form-datepicker'
+gem 'wkhtmltopdf-binary'
+gem 'wicked_pdf'
+gem 'jquery-inputmask-rails'
+gem 'momentjs-rails'
+gem 'bootstrap-daterangepicker-rails'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
 # Use ActiveModel has_secure_password

@@ -10,4 +10,5 @@
 #
 
 class Limpeza < ApplicationRecord
+  belongs_to :veiculo
 end

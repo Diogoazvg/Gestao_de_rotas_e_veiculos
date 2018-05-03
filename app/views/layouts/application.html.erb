@@ -20,13 +20,13 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="#">GestaoDeRotasEVeiculos</a>
+        <a class="navbar-brand" href="#">Gestão De Rotas E Veículos</a>
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Link1", "/path1"  %></li>
+            <li><%= link_to "Adicionar Veículo", new_veiculo_path  %></li>
             <li><%= link_to "Link2", "/path2"  %></li>
             <li><%= link_to "Link3", "/path3"  %></li>
-            <li><%= button_to "Sign out", destroy_usuario_session_path, :method => :delete %>
+            <li><%= button_to "Sair", destroy_usuario_session_path, :method => :delete %>
           </ul>
         </div>
       </div>
@@ -40,12 +40,11 @@
         </div>
         <div class="col-lg-3">
           <div class="well sidebar-nav">
-            <h3>Sidebar</h3>
+            <h3>Veiculos</h3>
             <ul class="nav nav-list">
-              <li class="nav-header">Sidebar</li>
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Adicionar Veículo", new_veiculo_path  %></li>
+              <li><%= link_to "Meus Veículos", veiculos_path  %></li>
+              <li><%= link_to "Selecionar um Veículo", index2_path  %></li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

@@ -1,4 +1,6 @@
-<%- model_class = Veiculo -%> <h4>Categoria CNH do Usuário:<%= current_usuario.cnh %></h4>
+<%- model_class = Veiculo -%>
+<h4>Usuário:<%= current_usuario.nome %></h4> 
+<h4>Categoria CNH do Usuário:<%= current_usuario.cnh %></h4>
 <div class="page-header">
   <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
 </div>
@@ -39,8 +41,16 @@
         veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %>
         <%= link_to t('.edit', :default => t("helpers.links.edit")),
         edit_veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %>
-        <%= link_to t('.reservar'), new_veiculo_reserva_path(veiculo), :class => 'btn btn-default btn-xs' %>
-        <!--%= link_to t('.devolver'), new_veiculo_devolucao_path(veiculo), :class => 'btn btn-default btn-xs' %-->
+        <%if veiculo.categoria_cnh == current_usuario.cnh%>
+          <div class="alert alert-success" role="alert">
+              <a class="alert-link">Pode reservar</a>
+          </div>
+          <%= link_to t('.reservar'), new_veiculo_reserva_path(veiculo), :class => 'btn btn-default btn-xs' %>
+          <%else%>
+          <div class="alert alert-warning" role="alert">
+              <a class="alert-link">Categoria diferente</a>
+          </div>
+          <%end%><!--%= link_to t('.devolver'), new_veiculo_devolucao_path(veiculo), :class => 'btn btn-default btn-xs' %-->
 
         <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
         veiculo_path(veiculo),

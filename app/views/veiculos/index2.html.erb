@@ -37,8 +37,8 @@
       <td><%= veiculo.combustivel %></td>
       <td><%= veiculo.combustivel2 %></td>
       <td>
-        <%= link_to t('.show', :default => t("helpers.links.show")),
-        veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %>
+        <!--%= link_to t('.show', :default => t("helpers.links.show")),
+        veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %-->
         <!--%= link_to t('.edit', :default => t("helpers.links.edit")),
         edit_veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %-->
         <%if veiculo.categoria_cnh == current_usuario.cnh && veiculo.status == 'Disponível'%>

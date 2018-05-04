@@ -11,7 +11,7 @@ task inicial: :environment do
     Usuario.create(
       email:'admin@admin.com',
       matricula:'12345678',          
-      nome:'administrador',               
+      nome:'Administrador',               
       nascimento:DateTime.now.to_date,         
       funcao: %w(Técnico Gerente Motorista).sample,             
       perfil: %w(Atendente Gerente_ Administrador).sample,             
@@ -21,7 +21,7 @@ task inicial: :environment do
       )
 
     Usuario.create(
-      email:'atendente@atendente.com',
+      email:'Atendente@atendente.com',
       matricula:'12345678',          
       nome:'atendente',               
       nascimento:DateTime.now.to_date,         

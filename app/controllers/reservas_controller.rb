@@ -39,7 +39,6 @@ class ReservasController < ApplicationController
   # POST /reservas
   # POST /reservas.json
   def create
-    byebug
     #if current_usuario.reserva.veiculo.categoria_cnh == current_usuario.cnh
       @reserva = Reserva.new(reserva_params)
       @salvar = @veiculo.update(status: reserva_params[:status])

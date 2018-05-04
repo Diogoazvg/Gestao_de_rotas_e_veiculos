@@ -28,13 +28,13 @@ task inicial: :environment do
       funcao: %w(Técnico Gerente Motorista).sample,             
       perfil: %w(Atendente Gerente_ Administrador).sample,             
       cnh:'B',                
-      password: '12345678',
+      password: '23456789',
       password_confirmation: '12345678'
       )
 500.times do
     Usuario.create(
       email:Faker::Internet.email,
-      matricula:'12345678',          
+      matricula:'87654321',          
       nome:Faker::Name.unique.name,               
       nascimento:DateTime.now.to_date,         
       funcao: %w(Técnico Gerente Motorista).sample,             

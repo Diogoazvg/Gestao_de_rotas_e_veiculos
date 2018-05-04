@@ -9,7 +9,7 @@
   <%= f.input :matricula, required: true, autofocus: true %>
   <%= f.input :nascimento, required: true, autofocus: true %>
   <%= f.input :funcao, collection: %w(Técnico Gerente Motorista) %>
-  <%= f.input :perfil, collection: %w(Atendente Gerente Administrador) %>
+  <%= f.input :perfil, collection: %w(Atendente Gerente_ Administrador) %>
   <%= f.input :cnh, collection: %w(A B C D E) %>
   <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
   <%= f.input :password_confirmation, required: true %>

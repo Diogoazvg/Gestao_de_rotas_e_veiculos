@@ -39,7 +39,7 @@ class Usuario < ApplicationRecord
   validates :password_confirmation, presence: true
 
   enum funcao: %w(Técnico Gerente Motorista)
-  enum perfil: %w(Atendente Gerente_perfil Administrador)
+  enum perfil: %w(Atendente Gerente_ Administrador)
   enum cnh: %w(A B C D E)
 
   has_one :reserva

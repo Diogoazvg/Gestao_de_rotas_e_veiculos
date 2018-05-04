@@ -25,10 +25,11 @@ Rails.application.routes.draw do
     authenticated :usuario do
       root 'devise/sessions#new', as: :authenticated_root
     end
-
     #unauthenticated do
     root 'devise/sessions#new'#, as: :unauthenticated_root
     #end
   end
+
+  get 'relatorio3' => 'relatorios#relatorio3'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

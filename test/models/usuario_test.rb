@@ -17,10 +17,10 @@
 #  nascimento             :date
 #  funcao                 :string
 #  perfil                 :string
-#  cnh                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  email                  :string
+#  cnh                    :integer
 #
 
 require 'test_helper'

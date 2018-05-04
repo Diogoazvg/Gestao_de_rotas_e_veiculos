@@ -10,6 +10,7 @@
 #  veiculo_id            :bigint(8)
 #  data_inicial          :date
 #  nivel_tanque          :integer
+#  status                :string
 #
 
 module ReservasHelper

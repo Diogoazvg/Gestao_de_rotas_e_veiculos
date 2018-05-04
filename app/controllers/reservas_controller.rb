@@ -10,6 +10,7 @@
 #  veiculo_id            :bigint(8)
 #  data_inicial          :date
 #  nivel_tanque          :integer
+#  status                :string
 #
 
 class ReservasController < ApplicationController
@@ -39,7 +40,8 @@ class ReservasController < ApplicationController
   # POST /reservas
   # POST /reservas.json
   def create
-    #if current_usuario.reserva.veiculo.categoria_cnh == current_usuario.cnh
+
+    if @veiculo.categoria_cnh == current_usuario.cnh
       @reserva = Reserva.new(reserva_params)
       @salvar = @veiculo.update(status: reserva_params[:status])
 
@@ -53,10 +55,10 @@ class ReservasController < ApplicationController
         end
       end
 
-    # else
-    #   flash[:info] = "Sua categoria de CNH é diferente da necessária para dirigir esse veículo."
-    #   redirect_to index2_path
-    # end
+    else
+      flash[:info] = "Sua categoria de CNH é diferente da necessária para dirigir esse veículo."
+      redirect_to index2_path
+    end
   end
 
   # PATCH/PUT /reservas/1

@@ -17,10 +17,10 @@
 #  nascimento             :date
 #  funcao                 :string
 #  perfil                 :string
-#  cnh                    :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #  email                  :string
+#  cnh                    :integer
 #
 
 class Usuario < ApplicationRecord
@@ -42,7 +42,7 @@ class Usuario < ApplicationRecord
   enum perfil: %w(Atendente Gerente_ Administrador)
   enum cnh: %w(A B C D E)
 
-  has_one :reserva
+  has_many :reservas
   has_one :devolucao
   has_one :veiculo, through: :reserva
 

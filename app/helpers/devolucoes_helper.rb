@@ -10,6 +10,9 @@
 #  data              :date
 #  nivel_combustivel :float
 #  veiculo_id        :bigint(8)
+#  usuario_id        :bigint(8)
+#  status            :string
+#  reserva_id        :string
 #
 
 module DevolucoesHelper

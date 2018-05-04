@@ -7,6 +7,7 @@
 #  modelo        :string
 #  ano           :integer
 #  placa         :string
+#  string        :string           default("Disponível")
 #  quilometragem :float
 #  created_at    :datetime         not null
 #  updated_at    :datetime         not null

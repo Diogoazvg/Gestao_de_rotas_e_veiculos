@@ -39,9 +39,9 @@
       <td>
         <%= link_to t('.show', :default => t("helpers.links.show")),
         veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %>
-        <%= link_to t('.edit', :default => t("helpers.links.edit")),
-        edit_veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %>
-        <%if veiculo.categoria_cnh == current_usuario.cnh%>
+        <!--%= link_to t('.edit', :default => t("helpers.links.edit")),
+        edit_veiculo_path(veiculo), :class => 'btn btn-default btn-xs' %-->
+        <%if veiculo.categoria_cnh == current_usuario.cnh && veiculo.status == 'Disponível'%>
           <div class="alert alert-success" role="alert">
               <a class="alert-link">Pode reservar</a>
           </div>
@@ -52,11 +52,11 @@
           </div>
           <%end%><!--%= link_to t('.devolver'), new_veiculo_devolucao_path(veiculo), :class => 'btn btn-default btn-xs' %-->
 
-        <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+        <!--%= link_to t('.destroy', :default => t("helpers.links.destroy")),
         veiculo_path(veiculo),
         :method => :delete,
         :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
-        :class => 'btn btn-xs btn-danger' %>
+        :class => 'btn btn-xs btn-danger' %-->
       </td>
     </tr>
     <% end %>

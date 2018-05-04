@@ -29,6 +29,7 @@ class Usuario < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :authentication_keys => [:matricula]#, :validatable
   validates :matricula, presence: true
+  validates :matricula, uniqueness: true
   validates :nome, presence: true
   validates :nascimento, presence: true
   validates :funcao, presence: true

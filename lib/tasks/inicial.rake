@@ -22,7 +22,7 @@ task inicial: :environment do
 
     Usuario.create(
       email:'Atendente@atendente.com',
-      matricula:'12345678',          
+      matricula:'23456789',          
       nome:'atendente',               
       nascimento:DateTime.now.to_date,         
       funcao: %w(Técnico Gerente Motorista).sample,             
@@ -34,7 +34,7 @@ task inicial: :environment do
 500.times do
     Usuario.create(
       email:Faker::Internet.email,
-      matricula:'87654321',          
+      matricula:Faker::Number.number(8),          
       nome:Faker::Name.unique.name,               
       nascimento:DateTime.now.to_date,         
       funcao: %w(Técnico Gerente Motorista).sample,             

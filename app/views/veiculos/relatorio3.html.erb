@@ -1,0 +1,118 @@
+<%- model_class = Veiculo-%> <h4>Categoria CNH do Usuário:<%= current_usuario.cnh %></h4>
+<div class="page-header">
+  <h1><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h1>
+</div>
+<table class="table table-striped">
+  <thead>
+    
+    <% current_usuario.reservas.each do |reserva| %>
+    <% if reserva.veiculo.status == 'Indisponível' %>
+    <h3>Usuário</h3> 
+    <tr>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:nome) %></th>
+      <th><%= model_class.human_attribute_name(:matricula) %></th>
+      <th><%= model_class.human_attribute_name(:funcao) %></th>
+      <th><%= model_class.human_attribute_name(:perfil) %></th>
+      <th><%= model_class.human_attribute_name(:cnh) %></th>
+      <th><%= model_class.human_attribute_name(:nascimento) %></th>
+    </tr>
+  </thead>
+  <tbody>  
+    <tr>  
+      <td><%= current_usuario.id %></td>
+      <td><%= current_usuario.nome %></td>
+      <td><%= current_usuario.matricula %></td>
+      <td><%= current_usuario.funcao %></td>
+      <td><%= current_usuario.perfil %></td>
+      <td><%= current_usuario.cnh %></td>
+      <td><%= current_usuario.nascimento %></td>
+    </tr>
+    <% end %>
+    <% end %>
+
+
+    <thead>
+    <% current_usuario.reservas.each do |reserva| %>
+    <% if reserva.veiculo.status == 'Indisponível' %>
+     <tr>
+      <td>
+      <th><%= model_class.human_attribute_name(:id) %></th>
+      <th><%= model_class.human_attribute_name(:marca) %></th>
+      <th><%= model_class.human_attribute_name(:modelo) %></th>
+      <th><%= model_class.human_attribute_name(:ano) %></th>
+      <th><%= model_class.human_attribute_name(:placa) %></th>
+      <th><%= model_class.human_attribute_name(:tipo) %></th>
+      <th><%= model_class.human_attribute_name(:cnh) %></th>
+      <!--th><%= model_class.human_attribute_name(:status) %></th-->
+      <th><%= model_class.human_attribute_name(:quilometragem) %></th>
+      <th><%= model_class.human_attribute_name(:combustivel) %></th>
+      <th><%= model_class.human_attribute_name(:combustivel) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+      </td>
+    </tr> 
+  </thead>
+  <% end %>
+  <% end %>
+
+  <% current_usuario.reservas.each do |reserva| %>
+  <% if reserva.veiculo.status == 'Indisponível' %> 
+    <tr>
+      <td>  
+        <td><%= link_to reserva.veiculo.id %></td>
+        <td><%= reserva.veiculo.marca %></td>
+        <td><%= reserva.veiculo.modelo %></td>
+        <td><%= reserva.veiculo.ano %></td>
+        <td><%= reserva.veiculo.placa %></td>
+        <td><%= reserva.veiculo.tipo %></td>
+        <td><%= reserva.veiculo.categoria_cnh %></td>
+        <!--td><%= reserva.veiculo.status %></td-->
+        <td><%= reserva.veiculo.quilometragem %></td>
+        <td><%= reserva.veiculo.combustivel %></td>
+        <td><%= reserva.veiculo.combustivel2 %></td>
+        <td>
+
+          <%= link_to t('.show', :default => t("helpers.links.show")),
+          veiculo_path(reserva.veiculo), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+          edit_veiculo_path(reserva.veiculo), :class => 'btn btn-default btn-xs' %>
+          <%= link_to t('.devolver'), new_veiculo_reserva_devolucao_path(reserva.veiculo, reserva), :class => 'btn btn-default btn-xs' %>
+
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+          veiculo_path(reserva.veiculo),
+          :method => :delete,
+          :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+          :class => 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+    </thead>
+    <% end %>
+    <% end %>
+
+    <% current_usuario.reservas.each do |reserva| %>
+    <% if reserva.veiculo.status == 'Indisponível' %>  
+      <tr>  
+        <th><%= model_class.human_attribute_name(:data) %></th>
+        <th><%= model_class.human_attribute_name(:valor) %></th>
+        <th><%= model_class.human_attribute_name(:detalhes) %></th>
+        <th><%= model_class.human_attribute_name(:previsao) %></th>
+      </tr> 
+      <tr>
+        <td>
+          <% reserva.veiculo.manutencoes.each do |manutencao| %>
+          <td><%=manutencao.data%></td>
+          <td><%=manutencao.valor%></td>
+          <td><%=manutencao.detalhes%></td>
+          <td><%=manutencao.previsao%></td>
+          <% end %>
+      <% end %> 
+      <% end %>  
+  </tbody>
+</table>
+
+
+
+
+
+
+

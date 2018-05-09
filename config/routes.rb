@@ -16,9 +16,6 @@ Rails.application.routes.draw do
       resources :devolucoes
     end 
   end
-  resources :reservas do
-    resources :devolucoes
-  end
   get 'index2' => 'veiculos#index2' 
 
   devise_scope :usuario do
@@ -30,6 +27,6 @@ Rails.application.routes.draw do
     #end
   end
 
-  get 'relatorio3' => 'relatorios#relatorio3'
+  get 'relatorio_veiculo3' => 'veiculos#relatorio3' 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -19,7 +19,7 @@
 #
 
 class VeiculosController < ApplicationController
-  before_action :set_veiculo, only: [:show, :edit, :update, :destroy]
+  before_action :set_veiculo, only: [:show, :edit, :update, :destroy, :relatorio_veiculo3]
 
   # GET /veiculos
   # GET /veiculos.json
@@ -28,7 +28,11 @@ class VeiculosController < ApplicationController
   end
 
   def index2
-    @veiculos = Veiculo.all
+    @veiculos = Veiculo.all 
+  end
+
+  def relatorio_veiculo3
+    
   end
 
   # GET /veiculos/1
